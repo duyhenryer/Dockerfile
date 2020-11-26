@@ -29,4 +29,4 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}-apache ./php/apache/${{ matrix.version }}
         
       - name: Push image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}-apache
