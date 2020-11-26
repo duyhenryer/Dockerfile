@@ -29,7 +29,7 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}-fpm ./php/fpm/${{ matrix.version }}
         
       - name: Push image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}-fpm
       
       #- name: Build and Push image to DockerHub
         #run: |          
