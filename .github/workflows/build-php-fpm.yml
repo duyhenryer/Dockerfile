@@ -1,12 +1,7 @@
-name: Build docker image php
+name: BUILD PHP-FPM
 on:
-  push:
-    branches: 
-      - main
   workflow_dispatch:
-#     inputs:
-#       tags:
-#         description: 'Person to greet'
+
 # env:
   #  tags image's name.
 #   TAG_IMAGE_7.2: 7.2
@@ -15,9 +10,30 @@ on:
 #   TAG_IMAGE_LATEST: latest
 
 jobs:
-  Running:
-    #runs-on: ubuntu-latest
-    runs-on: self-hosted
+  latest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ["latest"]
+    steps:
+      - uses: actions/checkout@master
+      - name: Build latest version
+        
+      - name: Login Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+        
+      - name: Build image and add tags
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }} ./php/${{ matrix.version }}
+        
+      - name: Push image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}
+                   
+  build:
+    runs-on: ubuntu-latest
+    #runs-on: self-hosted
     strategy:
       matrix:
         version: ["latest", "7.4", "7.3", "7.2"]
@@ -31,10 +47,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
         
       - name: Build image and add tags
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }} ./php/fpm/${{ matrix.version }}
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}-fpm ./php/fpm/${{ matrix.version }}
         
       - name: Push image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}-fpm
       
       #- name: Build and Push image to DockerHub
         #run: |          
