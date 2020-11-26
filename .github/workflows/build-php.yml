@@ -1,7 +1,9 @@
 name: Build docker image php
 on:
   workflow_dispatch:
-
+    inputs:
+      name:
+        description: 'Person to greet'
 # env:
   #  tags image's name.
 #   TAG_IMAGE_7.2: 7.2
@@ -32,7 +34,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}
       
       - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+        run: echo ${{ github.event.inputs.name }}
         
       #- name: Build and Push image to DockerHub
         #run: |          
