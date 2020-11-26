@@ -30,6 +30,9 @@ jobs:
         
       - name: Push image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}
+      
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
         
       #- name: Build and Push image to DockerHub
         #run: |          
