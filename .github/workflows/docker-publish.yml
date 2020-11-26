@@ -48,6 +48,6 @@ jobs:
           # echo IMAGE_ID=$IMAGE_ID
           # echo VERSION=$VERSION
           
-          docker build . --file ${{ matrix.version }}/Dockerfile
+          docker build . --file /php/fpm/${{ matrix.version }}/Dockerfile
           docker tag $DOCKERHUB_USERNAME/${{ matrix.version }}
           docker push $DOCKERHUB_USERNAME/${{ matrix.version }}
