@@ -1,10 +1,6 @@
-name: Build PHP images
-
+name: Build docker image php
 on:
-  push:
-    # Publish `main` as Docker `latest` image.
-    branches:
-      - main
+  workflow_dispatch:
 
 # env:
   #  tags image's name.
