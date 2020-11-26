@@ -41,10 +41,10 @@ jobs:
         run: docker build . --file php/fpm/${{ matrix.version }}/Dockerfile
 
       - name: Add tags
-        run: docker tag ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}
+        run: docker tag php/fpm/${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}
         
       - name: Push image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}
+        run: docker push php/fpm/${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}
         
       #- name: Build and Push image to DockerHub
         #run: |
