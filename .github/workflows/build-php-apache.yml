@@ -18,7 +18,10 @@ jobs:
         version: ["7.4", "7.3", "7.2"]
     steps:
       - uses: actions/checkout@v2
-
+        
+      - name: Setting WORKDIR
+        working-directory: /app
+        
       - name: Login Docker Hub
         uses: docker/login-action@v1
         with:
