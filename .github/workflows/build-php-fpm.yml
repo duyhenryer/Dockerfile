@@ -17,6 +17,9 @@ jobs:
       matrix:
         version: ["latest", "7.4", "7.3", "7.2"]
     steps:
+      - name: Check GitHub Status
+        uses: crazy-max/ghaction-github-status@v2
+        
       - uses: actions/checkout@v2
 
       - name: Login Docker Hub
