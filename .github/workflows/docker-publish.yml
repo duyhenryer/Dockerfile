@@ -1,12 +1,7 @@
-name: Build docker image php
+name: BUILD PHP-APACHE
 on:
-  push:
-    branches: 
-      - main
   workflow_dispatch:
-#     inputs:
-#       tags:
-#         description: 'Person to greet'
+
 # env:
   #  tags image's name.
 #   TAG_IMAGE_7.2: 7.2
