@@ -4,9 +4,9 @@ on:
     branches: 
       - main
   workflow_dispatch:
-    inputs:
-      tags:
-        description: 'Person to greet'
+#     inputs:
+#       tags:
+#         description: 'Person to greet'
 # env:
   #  tags image's name.
 #   TAG_IMAGE_7.2: 7.2
@@ -36,8 +36,8 @@ jobs:
       - name: Push image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}
       
-      - run: |
-          echo "- in ${{ github.event.inputs.tags }}!"
+#       - run: |
+#           echo "- in ${{ github.event.inputs.tags }}!"
         
       #- name: Build and Push image to DockerHub
         #run: |          
