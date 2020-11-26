@@ -17,8 +17,7 @@ jobs:
         version: ["latest"]
     steps:
       - uses: actions/checkout@master
-      - name: Build latest version
-        
+                
       - name: Login Docker Hub
         uses: docker/login-action@v1
         with:
