@@ -35,11 +35,18 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
         
-      # - name: Build image
-       # run: docker build . --file Dockerfile --tag $IMAGE_NAME
+      - name: Build image
+        #run: docker build . --file Dockerfile --tag $IMAGE_NAME
+        run: docker build . --file /php/fpm/${{ matrix.version }}/Dockerfile
 
-      - name: Build and Push image to DockerHub
-        run: |
+      - name: Add tags
+        run: docker tag $DOCKER_USERNAME/${{ matrix.version }}
+        
+      - name: Push image
+        run: docker push $DOCKER_USERNAME/${{ matrix.version }}
+        
+      #- name: Build and Push image to DockerHub
+        #run: |
           # IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
 
           # Use Docker `latest` tag convention
@@ -48,6 +55,6 @@ jobs:
           # echo IMAGE_ID=$IMAGE_ID
           # echo VERSION=$VERSION
           
-          docker build . --file /php/fpm/${{ matrix.version }}/Dockerfile
-          docker tag $DOCKER_USERNAME/${{ matrix.version }}
-          docker push $DOCKER_USERNAME/${{ matrix.version }}
+          #docker build . --file /php/fpm/${{ matrix.version }}/Dockerfile
+          #docker tag $DOCKER_USERNAME/${{ matrix.version }}
+          #docker push $DOCKER_USERNAME/${{ matrix.version }}
