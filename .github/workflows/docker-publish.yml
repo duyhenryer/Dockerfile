@@ -13,12 +13,12 @@ on:
   # Run tests for any PRs.
   pull_request:
 
-env:
+# env:
   #  tags image's name.
-  TAG_IMAGE_7.2: 7.2
-  TAG_IMAGE_7.3: 7.3
-  TAG_IMAGE_7.4: 7.4
-  TAG_IMAGE_LATEST: latest
+#   TAG_IMAGE_7.2: 7.2
+#   TAG_IMAGE_7.3: 7.3
+#   TAG_IMAGE_7.4: 7.4
+#   TAG_IMAGE_LATEST: latest
 
 jobs:
   push:
