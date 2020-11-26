@@ -51,9 +51,3 @@ jobs:
         
       - name: Push image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/php:${{ matrix.version }}-fpm
-      
-      #- name: Build and Push image to DockerHub
-        #run: |          
-          #docker build . --file /php/fpm/${{ matrix.version }}/Dockerfile
-          #docker tag $DOCKER_USERNAME/${{ matrix.version }}
-          #docker push $DOCKER_USERNAME/${{ matrix.version }}
