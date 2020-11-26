@@ -37,7 +37,7 @@ jobs:
         
       - name: Build image
         #run: docker build . --file Dockerfile --tag $IMAGE_NAME
-        run: docker build . --file /php/fpm/${{ matrix.version }}/Dockerfile
+        run: docker build . --file php/fpm/${{ matrix.version }}/Dockerfile
 
       - name: Add tags
         run: docker tag $DOCKER_USERNAME/${{ matrix.version }}
