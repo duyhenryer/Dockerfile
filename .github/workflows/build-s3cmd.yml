@@ -1,4 +1,4 @@
-name: BUILD S3CMD
+name: BUILD PHP-FPM
 on:
   # push:
   #   branches:
@@ -25,4 +25,4 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/s3cmd:$TAG_S3CMD ./s3cmd/
         
       - name: Push image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/python:$TAG_S3CMD
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/s3cmd:$TAG_S3CMD
