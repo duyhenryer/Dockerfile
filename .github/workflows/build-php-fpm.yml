@@ -14,8 +14,8 @@ on:
 
 jobs:
   latest:
-    runs-on: ubuntu-latest
-    #runs-on: self-hosted
+    #runs-on: ubuntu-latest
+    runs-on: self-hosted
     strategy:
       matrix:
         version: ["latest"]
@@ -39,7 +39,7 @@ jobs:
     #runs-on: self-hosted
     strategy:
       matrix:
-        version: ["latest", "7.4", "7.3", "7.2"]
+        version: ["7.4", "7.3", "7.2"]
     steps:
       - uses: actions/checkout@v2
 
