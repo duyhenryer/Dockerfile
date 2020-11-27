@@ -1,4 +1,4 @@
-name: BUILD PHP-FPM
+name: BUILD S3CMD
 on:
   # push:
   #   branches:
