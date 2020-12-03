@@ -1,4 +1,4 @@
-name: BUILD HOTFIX
+name: BUILD DEBUGER
 on:
 #   push:
 #     branches:
