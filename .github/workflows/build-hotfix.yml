@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  TAG_HOTFIX: hotfix
+  TAG_HOTFIX: mongodb
 
 jobs:              
   running:
