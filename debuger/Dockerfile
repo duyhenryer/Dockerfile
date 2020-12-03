@@ -1,4 +1,7 @@
 FROM ubuntu:16.04
+
+WORKDIR /app
+
 RUN apt update && \
 	apt install -y curl iputils-ping telnet net-tools dnsutils vim mysql-client postgresql-client redis-tools wget apt-transport-https
 

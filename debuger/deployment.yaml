@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: duy
+  name: debuger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: debuger
+  template:
+    metadata:
+      labels:
+        app: debuger
+    spec:
+      containers:
+      - name: debuger
+        image: duyhenryer/debuger:latest
+        command: ["/bin/sleep", "infinity"]
+        imagePullPolicy: IfNotPresent
