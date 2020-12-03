@@ -6,3 +6,4 @@
 
 ![BUILD PHP-FPM](https://github.com/duyhenryer/Dockerfile/workflows/BUILD%20PHP-FPM/badge.svg)
 
+![BUILD DEBUGER](https://github.com/duyhenryer/Dockerfile/workflows/BUILD%20DEBUGER/badge.svg)
