@@ -5,8 +5,8 @@ on:
 #       - main
   workflow_dispatch:
 
-# env:
-#   TAG_HOTFIX: latest 
+env:
+  TAG_HOTFIX: 16.04 
 
 jobs:              
   running:
@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
         
       - name: Build image and add tags
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/debuger ./debuger/
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/debuger:$TAG_HOTFIX ./debuger/
         
       - name: Push image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/debuger
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/debuger:$TAG_HOTFIX
