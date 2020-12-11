@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     paths: 
       - 'test/*'
-  push:
-    branches:
-      - master
-    paths:
-      - 'test/*'
+  # push:
+  #   branches:
+  #     - master
+  #   paths:
+  #     - 'test/*'
 
 env:
   IMAGE_NAME: nginx
