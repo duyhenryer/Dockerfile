@@ -1,0 +1,36 @@
+name: Build and test image to GitHub Container Registry
+on:
+  workflow_dispatch:
+    paths: 
+      - 'test/*'
+  push:
+    branches:
+      - master
+    paths:
+      - 'test/*'
+
+env:
+  IMAGE_NAME: nginx
+  TAG: latest
+
+jobs:
+  push:
+    name: Build and push nginx latest image
+
+    runs-on: ubuntu-latest
+    # if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Log into GitHub Container Registry
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ secrets.GHCR_USER }} --password-stdin
+
+      - name: Build Nginx image
+        run: |
+          cd test
+          docker build --tag ghcr.io/duyhenryer/$IMAGE_NAME:$TAG .
+
+      - name: Push image to GitHub Container Registry
+        run: |
+          docker push ghcr.io/duyhenryer/$IMAGE_NAME:$TAG
