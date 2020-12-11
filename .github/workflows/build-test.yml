@@ -27,6 +27,7 @@ jobs:
         run: echo "${{ secrets.PAT }}" | docker login ghcr.io -u ${{ secrets.USERNAME }} --password-stdin
 
       - name: Build Nginx image
+        id: build
         run: |
           cd test
           docker build --tag ghcr.io/duyhenryer/$IMAGE_NAME:$TAG .
@@ -34,3 +35,7 @@ jobs:
       - name: Push image to GitHub Container Registry
         run: |
           docker push ghcr.io/duyhenryer/$IMAGE_NAME:$TAG
+      
+      - name: Image digest
+        run: |
+          echo ${{ steps.build.outputs.digest }}
