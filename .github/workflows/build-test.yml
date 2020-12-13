@@ -45,7 +45,7 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_TITLE: 'Slack Notification'
         SLACK_MESSAGE: 'Message to the Slack Notification'
-        SLACK_ICON: 'https://github.com/<Github User>.png?size=48'
+        SLACK_ICON: 'https://github.com/duyhenryer.png?size=48'
         SLACK_COLOR: '#efefef'
         SLACK_USERNAME: 'git_action_bot'
         GITHUB_ACTOR: ${GITHUB_ACTOR}
