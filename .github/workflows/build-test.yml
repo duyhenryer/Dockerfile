@@ -25,7 +25,12 @@ jobs:
 
       - name: Log into GitHub Container Registry
         run: echo "${{ secrets.PAT }}" | docker login ghcr.io -u ${{ secrets.USERNAME }} --password-stdin
-
+        
+      - name: Output Run ID
+        run: echo ${{ github.run_id }}
+      - name: Output Run Number
+        run: echo ${{ github.run_number }}
+        
       - name: Build Nginx image
         run: |
           cd test
