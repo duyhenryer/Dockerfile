@@ -11,7 +11,7 @@ on:
 
 env:
   IMAGE_NAME: nginx
-  TAG: 1.0.2
+  TAG: 1.0.3
 
 jobs:
   build:
