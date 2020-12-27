@@ -11,7 +11,7 @@ on:
 
 env:
   IMAGE_NAME: nginx
-  TAG: latest
+  TAG: 1.1
 
 jobs:
   build:
@@ -34,11 +34,11 @@ jobs:
       - name: Build Nginx image
         run: |
           cd test
-          docker build --tag ghcr.io/duyhenryer/$IMAGE_NAME:${{ github.run_number }} .
+          docker build --tag ghcr.io/duyhenryer/$IMAGE_NAME:$TAG .
 
       - name: Push image to GitHub Container Registry
         run: |
-          docker push ghcr.io/duyhenryer/$IMAGE_NAME:${{ github.run_number }}
+          docker push ghcr.io/duyhenryer/$IMAGE_NAME:$TAG
   slackNotification:
     name: Slack Notification
     runs-on: ubuntu-latest
