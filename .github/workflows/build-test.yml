@@ -34,11 +34,11 @@ jobs:
       - name: Build Nginx image
         run: |
           cd test
-          docker build --tag ghcr.io/duyhenryer/$IMAGE_NAME:$TAG .
+          docker build --tag ghcr.io/duyhenryer/$IMAGE_NAME:${{ github.run_number }} .
 
       - name: Push image to GitHub Container Registry
         run: |
-          docker push ghcr.io/duyhenryer/$IMAGE_NAME:$TAG
+          docker push ghcr.io/duyhenryer/$IMAGE_NAME:${{ github.run_number }}
   slackNotification:
     name: Slack Notification
     runs-on: ubuntu-latest
