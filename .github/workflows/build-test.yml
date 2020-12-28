@@ -1,4 +1,4 @@
-name: Build and test image to GitHub Container Registry
+name: BUILD & TEST to GCR
 on:
   workflow_dispatch:
     paths: 
