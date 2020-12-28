@@ -11,8 +11,7 @@ on:
 
 env:
   IMAGE_NAME: nginx
-  TAG: 1.0.3
-
+  TAG: 15
 jobs:
   build:
     name: Build and push nginx latest image
