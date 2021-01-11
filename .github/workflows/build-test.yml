@@ -38,23 +38,3 @@ jobs:
       - name: Push image to GitHub Container Registry
         run: |
           docker push ghcr.io/duyhenryer/$IMAGE_NAME:$TAG
-  slackNotification:
-    name: Slack Notification
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: git_action_bot
-      uses: bryannice/gitactions-slack-notification@master
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_TITLE: 'Slack Notification'
-        SLACK_MESSAGE: 'Message to the Slack Notification'
-        SLACK_ICON: 'https://github.com/duyhenryer.png?size=48'
-        SLACK_COLOR: '#efefef'
-        SLACK_USERNAME: 'git_action_bot'
-        GITHUB_ACTOR: ${GITHUB_ACTOR}
-        GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}
-        GITHUB_REF: ${GITHUB_REF}
-        GITHUB_ACTION: ${GITHUB_ACTION}
-        GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}
- 
