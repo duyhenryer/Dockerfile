@@ -1,13 +1,8 @@
-FROM mesosphere/aws-cli as PKG
+FROM amazon/aws-cli
 
-RUN apk --no-cache add openssl \
-    && wget -q -O kubectl https://storage.googleapis.com/kubernetes-release/release/v1.20.0/bin/linux/amd64/kubectl \
-    && wget -q -O gomplate https://github.com/hairyhenderson/gomplate/releases/download/v2.4.0/gomplate_linux-amd64-slim \
-    && chmod +x kubectl gomplate \
-    && mv kubectl gomplate /usr/local/bin
+WORKDIR /app
 
-ENTRYPOINT ["/bin/sh","-c"]
-CMD [""]
-USER 1234567890
+ENV KUBE_LATEST_VERSION="v1.19.4"
 
-WORKDIR /tmp
+RUN curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl && \
+    chmod +x /usr/local/bin/kubectl
