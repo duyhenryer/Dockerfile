@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
         
       - name: Build image and add tags
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/aws-kubectl:$TAG ./aws-kubectl/
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/aws-cli:$TAG ./aws-cli/
         
       - name: Push image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/aws-kubectl:$TAG
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/aws-cli:$TAG
