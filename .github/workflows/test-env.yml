@@ -14,7 +14,6 @@ jobs:
 
             -   name: Setup SSH Keys and known_hosts
                 run: |
-                    mkdir -p ~/.ssh
                     ssh-keygen
                     ls -al ~/.ssh
                     # ssh-add <<< "${{ secrets.SSH_PRIVATE_KEY }}"
