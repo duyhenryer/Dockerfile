@@ -15,7 +15,9 @@ s3cmd put --recursive --acl-public -m text/css --add-header='content-encoding:gz
 ```
 s3cmd put --recursive --acl-public -m application/javascript --add-header='content-encoding:gzip' main-ga.js s3://BUCKET-NAME/assets/
 ```
-
+```
+s3cmd put --recursive --acl-public --add-header='content-type':'image/png' facebook__2424__colored.png s3://static-stag.manysales.io/
+```
 
 
 Ref: 
