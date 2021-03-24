@@ -56,4 +56,5 @@ jobs:
       run: |
         docker push ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }}     
           
-          echo test, and deploy your project.
+          
+        
