@@ -47,11 +47,12 @@ jobs:
             
     - name: Build Nginx image
       run: |
-          cd test
-          docker build --tag ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }} .
+        ls -al
+        cd test
+        docker build --tag ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }} . 
           
     - name: Push image to GitHub Container Registry
       run: |
-          docker push ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }}     
+        docker push ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }}     
           
           echo test, and deploy your project.
