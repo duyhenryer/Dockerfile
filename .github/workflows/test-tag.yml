@@ -54,6 +54,7 @@ jobs:
           
     - name: Push image to GitHub Container Registry
       run: |
+        docker images
         docker push ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }}     
           
           
