@@ -1,0 +1,57 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI TEST
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-push:
+    env:
+        IMAGE: ghcr.io/duyhenryer
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Generate build ID
+      id: prep
+      run: |
+          branch=${GITHUB_REF##*/}
+          sha=${GITHUB_SHA::8}
+          ts=$(date +%s)
+          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
+
+    # These are prerequisites for the docker build step
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to GitHub Container Registry
+      run: echo "${{ secrets.PAT }}" | docker login ghcr.io -u ${{ secrets.USERNAME }} --password-stdin
+
+#     - name: Build and publish container image with tag
+#       uses: docker/build-push-action@v2
+#       with:
+#           push: true
+#           context: .
+#           file: ./Dockerfile
+#           tags: |
+#             ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }}
+            
+    - name: Build Nginx image
+      run: |
+          cd test
+          docker build --tag ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }} .
+          
+    - name: Push image to GitHub Container Registry
+      run: |
+          docker push ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }}     
+          
+          echo test, and deploy your project.
