@@ -18,8 +18,9 @@ jobs:
     env:
         IMAGE: ghcr.io/duyhenryer
     runs-on: ubuntu-latest
+    
     steps:
-
+    - uses: actions/checkout@v2
     - name: Generate build ID
       id: prep
       run: |
