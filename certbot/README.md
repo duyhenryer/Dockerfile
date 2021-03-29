@@ -96,3 +96,6 @@ docker run -it --rm --name certbot-route53 \
 ```    
 
 ** The domain or host you request a certificate for must have a valid entry in the AWS Route 53 Host Zone **
+
+
+https://blog.ramondeklein.nl/2018/06/19/using-lets-encrypt-with-dockerized-nginx-and-route53/
