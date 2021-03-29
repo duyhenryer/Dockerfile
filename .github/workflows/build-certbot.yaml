@@ -1,4 +1,4 @@
-name: BUILD DEBUGER
+name: BUILD CERTBOT
 on:
   # push:
   #   branches:
