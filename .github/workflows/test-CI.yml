@@ -58,12 +58,12 @@ jobs:
       run: |
         ls -al
         cd test
-        docker build --tag ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }} . 
+        docker build --tag duyhenryer:${{ steps.prep.outputs.BUILD_ID }} . 
           
     - name: Push image to GitHub Container Registry
       run: |
         docker images
-        docker push ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }}     
+        docker push duyhenryer:${{ steps.prep.outputs.BUILD_ID }}     
           
           
         
