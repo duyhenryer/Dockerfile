@@ -1,4 +1,4 @@
-#FROM nginx
+FROM nginx
 
 WORKDIR /app
 
