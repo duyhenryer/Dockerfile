@@ -1,9 +1,6 @@
 name: Build fluentd
 on:
-  push:
-    branches:
-      - master
-
+  workflow_dispatch:
 env:
   IMAGE_TAG: v1
   FLUENTD_REPO: fluentd
