@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
     paths: 
       - 'test/*'
-  # push:
-  #   branches:
-  #     - master
+  pull_request:
+    branches:
+      - master
   #   paths:
   #     - 'test/*'
 
