@@ -5,10 +5,9 @@ on:
       - 'test/*'
   pull_request:
     branches:
-      - main
-  #   paths:
-  #     - 'test/*'
-
+      - master
+    paths-ignore:
+      - '**.md'
 env:
   IMAGE_NAME: nginx
   TAG: 1.0.${{ github.run_number }}
