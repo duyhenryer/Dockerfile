@@ -40,11 +40,9 @@ jobs:
 
     - name: setup env
       env:
-        DB_PASSWORD: ${{ secrets.STAG_DB_PASSWORD }}
         DB_SLAVE_PASSWORD: ${{ secrets.STAG_DB_SLAVE_PASSWORD }}
         DB_CORE_PASSWORD: ${{ secrets.STAG_DB_CORE_PASSWORD }}
         DB_MONGO_PASSWORD: ${{ secrets.STAG_DB_MONGO_PASSWORD }}
-        MAILGUN_SECRET: ${{ secrets.STAG_MAILGUN_SECRET }}
 
         # and more
       run: |
