@@ -49,10 +49,10 @@ jobs:
         envsubst < .env > .env
         cat .env
           
-    - name: Push image to GitHub Container Registry
-      run: |
-        echo ${{ steps.prep.outputs.BUILD_ID }}     
-        eche ${{  }}
+#     - name: Push image to GitHub Container Registry
+#       run: |
+#         echo ${{ steps.prep.outputs.BUILD_ID }}     
+#         eche ${{  }}
           
           
         
