@@ -50,7 +50,6 @@ jobs:
         # and more
       run: |
         envsubst < .env > .env
-        cat .env
           
     - name: Push image to GitHub Container Registry
       run: |
