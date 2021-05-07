@@ -52,8 +52,9 @@ jobs:
         envsubst < .env > .env
         cat .env
           
-#     - name: Push image to GitHub Container Registry
-#       run: |
+    - name: Push image to GitHub Container Registry
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/test ./test/
 #         echo ${{ steps.prep.outputs.BUILD_ID }}     
 #         eche ${{  }}
           
