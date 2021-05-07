@@ -39,17 +39,15 @@ jobs:
 #             ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }}
 
     - name: setup env
-      env:
 #         DB_SLAVE_PASSWORD: ${{ secrets.STAG_DB_SLAVE_PASSWORD }}
 #         DB_CORE_PASSWORD: ${{ secrets.STAG_DB_CORE_PASSWORD }}
 #         DB_MONGO_PASSWORD: ${{ secrets.STAG_DB_MONGO_PASSWORD }}
+      env:
         REACT_APP_EXTENSION_ID: ${{ secrets.REACT_APP_EXTENSION_ID }}
         REACT_APP_FIREBASE_API_KEY: ${{ secrets.REACT_APP_FIREBASE_API_KEY }}
         REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }}
-
-        # and more
       run: |
-        envsubst < .env > .env
+        envsubst < .env.stag > .env
           
     - name: Push image to GitHub Container Registry
       run: |
