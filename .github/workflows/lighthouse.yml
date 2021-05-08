@@ -12,7 +12,7 @@ jobs:
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v2
         with:
-          urls: 'https://mattorb.com/'
+          urls: 'https://alireviews.fireapps.io/'
           configPath: '.github/lighthouse/lighthouserc.json' # Assertions config file 
       - name: Save results
         uses: actions/upload-artifact@v1
