@@ -13,6 +13,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v2
         with:
           urls: 'https://mattorb.com/'
+          configPath: '.github/lighthouse/lighthouserc.json' # Assertions config file 
       - name: Save results
         uses: actions/upload-artifact@v1
         with:
