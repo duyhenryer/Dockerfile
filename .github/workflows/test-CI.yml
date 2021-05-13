@@ -8,13 +8,13 @@ jobs:
     
 
     steps:
+    - uses: actions/checkout@v2
     - name: setup env
       env:
         CORE_ACCESS_TOKEN: ${{ secrets.CORE_ACCESS_TOKEN }}
       run: |
         envsubst < .env.stag > xxxxxxxxx.json
         
-    - uses: actions/checkout@v2
     - name: Generate build ID
       id: prep
       run: |
