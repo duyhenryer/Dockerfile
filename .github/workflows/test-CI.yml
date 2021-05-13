@@ -12,6 +12,6 @@ jobs:
       id: prep
       run: |
           ls -al
-          https://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@github.com/YoungWorldTechnology/lb-core.git
+          git clone https://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@github.com/YoungWorldTechnology/lb-core.git
           ls -al
         
