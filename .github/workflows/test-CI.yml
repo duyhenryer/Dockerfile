@@ -12,6 +12,6 @@ jobs:
       id: prep
       run: |
           ls -al
-          git clone https://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@github.com/YoungWorldTechnology/lb-core.git
+          git clone https://${{ secrets.CORE_ACCESS_TOKEN }}@github.com/YoungWorldTechnology/lb-core.git
           ls -al
         
