@@ -6,7 +6,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
+
     steps:
+    - name: setup env
+      env:
+        CORE_ACCESS_TOKEN: ${{ secrets.CORE_ACCESS_TOKEN }}
+      run: |
+        envsubst < .env.stag > xxxxxxxxx.json
+        
     - uses: actions/checkout@v2
     - name: Generate build ID
       id: prep
@@ -14,5 +21,6 @@ jobs:
           ls -al
           git clone https://${{ secrets.CORE_ACCESS_TOKEN }}@github.com/YoungWorldTechnology/lb-core.git
           ls -al
+          cat xxxxxxxxx.json
           ls -al lb-core
         
