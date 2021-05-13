@@ -1,10 +1,6 @@
 name: CI TEST
 on:
   workflow_dispatch:
-
-env:
-  ECR_REPO: translate/translte-be
-  TAG: ${{ steps.prep.outputs.BUILD_ID }}
     
 jobs:
   build:
@@ -15,33 +11,6 @@ jobs:
     - name: Generate build ID
       id: prep
       run: |
-          branch=${GITHUB_REF##*/}
-          sha=${GITHUB_SHA::8}
-          ts=$(date +%s)
-          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
-
-#     - name: setup env
-#       env:
-#         REACT_APP_EXTENSION_ID: ${{ secrets.REACT_APP_EXTENSION_ID }}
-#         REACT_APP_FIREBASE_API_KEY: ${{ secrets.REACT_APP_FIREBASE_API_KEY }}
-#         REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }}
-#         REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
-#         REACT_APP_MEASUREMENT_ID: ${{ secrets.PROD_REACT_APP_MEASUREMENT_ID }}
-#       run: |
-#         envsubst < .env.stag > .env
-          
-    - name: Push image to GitHub Container Registry
-      run: |
-        echo ${{ steps.prep.outputs.BUILD_ID }}     
-
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      - name: Get key login 
-        run: |
-          echo $TAG 
           ls -al
           https://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@github.com/YoungWorldTechnology/lb-core.git
           ls -al
