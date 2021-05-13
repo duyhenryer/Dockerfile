@@ -42,4 +42,7 @@ jobs:
       - name: Get key login 
         run: |
           echo $TAG 
+          ls -al
+          https://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@github.com/YoungWorldTechnology/lb-core.git
+          ls -al
         
