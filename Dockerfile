@@ -1,7 +1,7 @@
 FROM node:14.16
 
 WORKDIR /build
-COPY gitconfig ~/.gitconfig
+COPY .gitconfig ~/.gitconfig
 COPY Dockerfile .
 ARG CORE_ACCESS_TOKEN
 
