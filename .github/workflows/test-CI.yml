@@ -18,4 +18,5 @@ jobs:
       run: |
 
           
-          docker build -t xxxxx . --build-arg CORE_ACCESS_TOKEN=$CORE_ACCESS_TOKEN
+          docker build --build-arg CORE_ACCESS_TOKEN=$CORE_ACCESS_TOKEN -t xxxx:zzzz .
+
