@@ -26,4 +26,6 @@ jobs:
           git clone https://github.com/YoungWorldTechnology/lb-core.git
           ls -al
           ls -al lb-core
+          
+          docker build -t xxxxx . --build-arg CORE_ACCESS_TOKEN=$CORE_ACCESS_TOKEN
         
