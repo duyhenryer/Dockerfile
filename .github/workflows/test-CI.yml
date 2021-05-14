@@ -5,7 +5,7 @@ on:
     branches:
     - main
 env:
-  GIT_ACCESS_TOKEN: ${{ secrets.GIT_ACCESS_TOKEN }}
+  GIT_ACCESS_TOKEN_LB_CORE: ${{ secrets.GIT_ACCESS_TOKEN_LB_CORE }}
 #   export GITHUB_PAT=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
 
 jobs:
@@ -20,5 +20,5 @@ jobs:
       run: |
 
           
-          docker build --build-arg GIT_ACCESS_TOKEN=$GIT_ACCESS_TOKEN -t xxxx:zzzz .
+          docker build --build-arg GIT_ACCESS_TOKEN_LB_CORE=$GIT_ACCESS_TOKEN_LB_CORE -t xxxx:zzzz .
 
