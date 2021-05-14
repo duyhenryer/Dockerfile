@@ -1,7 +1,7 @@
 FROM node:14.16
 
 WORKDIR /build
-#COPY . .
+COPY . .
 
 ARG CORE_ACCESS_TOKEN
 
