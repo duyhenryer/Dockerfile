@@ -9,9 +9,9 @@ ARG CORE_ACCESS_TOKEN
 # RUN git config --global user.name "duyhenryer"
 # RUN git config --global credential.helper store
 
-RUN git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
+RUN git config --global url."https://${CORE_ACCESS_TOKEN}@github.com/".insteadOf "https://github.com/"
 RUN npm install --ignore-scripts --quiet && npm cache clean --force
-RUN git config --global --unset url."https://${GITHUB_TOKEN}@github.com/".insteadOf
+RUN git config --global --unset url."https://${CORE_ACCESS_TOKEN}@github.com/".insteadOf
 
 RUN ls -al
 RUN echo https://duyhenryer:$CORE_ACCESS_TOKEN@github.com > ~/.git-credentials
