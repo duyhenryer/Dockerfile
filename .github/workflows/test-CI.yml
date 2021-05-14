@@ -4,6 +4,7 @@ on:
 
 env:
   CORE_ACCESS_TOKEN: ${{ secrets.CORE_ACCESS_TOKEN }}
+#   export GITHUB_PAT=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
 
 jobs:
   build:
@@ -15,10 +16,11 @@ jobs:
     - name: Generate build ID
       id: prep
       run: |
-          git config --global user.email "duyhenry250897@gmail.com"
-          git config --global user.name "duyhenryer"
-          git config --global user.password "$CORE_ACCESS_TOKEN"
+          git config --global user.email "daonv@fireapps.vn"
+          git config --global user.name "daonvfireapps"
           git config --global credential.helper store
+
+          echo https://duyhenryer:$CORE_ACCESS_TOKEN@github.com > ~/.git-credentials
 
           ls -al
           git clone https://github.com/YoungWorldTechnology/lb-core.git
