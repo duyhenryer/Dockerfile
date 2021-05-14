@@ -5,9 +5,9 @@ COPY .gitconfig ~/.gitconfig
 COPY Dockerfile .
 ARG GIT_ACCESS_TOKEN
 
-# RUN git config --global user.email "duydv@fireapps.vn"
-# RUN git config --global user.name "duyhenryer"
-# RUN git config --global credential.helper store
+RUN git config --global user.email "duydv@fireapps.vn"
+RUN git config --global user.name "duyhenryer"
+RUN git config --global credential.helper store
 
 RUN git clone https://duyhenryer:${GIT_ACCESS_TOKEN}@github.com/YoungWorldTechnology/lb-core.git xxx
 RUN ls -al
