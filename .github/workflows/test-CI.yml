@@ -16,16 +16,7 @@ jobs:
     - name: Generate build ID
       id: prep
       run: |
-          git config --global user.email "daonv@fireapps.vn"
-          git config --global user.name "daonvfireapps"
-          git config --global credential.helper store
 
-          echo https://duyhenryer:$CORE_ACCESS_TOKEN@github.com > ~/.git-credentials
-
-          ls -al
-          git clone https://github.com/YoungWorldTechnology/lb-core.git
-          ls -al
-          ls -al lb-core
           
           docker build -t xxxxx . --build-arg CORE_ACCESS_TOKEN=$CORE_ACCESS_TOKEN
         
