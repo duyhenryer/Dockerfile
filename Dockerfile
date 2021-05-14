@@ -16,7 +16,7 @@ RUN git config --global url."https://${GIT_ACCESS_TOKEN}@github.com".insteadOf "
 
 
 RUN ls -al
-RUN git clone git@github.com:YoungWorldTechnology/lb-core.git
+#RUN git clone git@github.com:YoungWorldTechnology/lb-core.git
 
 RUN git clone https://github.com/YoungWorldTechnology/lb-core.git
 RUN ls -al
