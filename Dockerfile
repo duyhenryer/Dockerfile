@@ -11,8 +11,7 @@ ARG CORE_ACCESS_TOKEN
 RUN ls -al
 RUN echo https://duyhenryer:$CORE_ACCESS_TOKEN@github.com > ~/.git-credentials
 RUN ls -al
-RUN cat ~/.git-credentials
-RUN cat ~/.gitconfig
+
 
 RUN git clone https://github.com/YoungWorldTechnology/lb-core.git
 RUN ls -al
