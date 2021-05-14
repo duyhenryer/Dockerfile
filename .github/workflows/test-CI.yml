@@ -1,7 +1,9 @@
 name: CI TEST
 on:
   workflow_dispatch:
-
+  push:
+    branches:
+    - main
 env:
   CORE_ACCESS_TOKEN: ${{ secrets.CORE_ACCESS_TOKEN }}
 #   export GITHUB_PAT=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
