@@ -1,0 +1,8 @@
+{
+    "name": "ssh-test",
+    "version": "0.0.1",
+    "description": "Testing installing a private repository",
+    "dependencies": {
+        "my-ssh-test-dependency": "git+ssh://git@github.com:duyhenryer/decrypt.co.git#master"
+    }
+}
