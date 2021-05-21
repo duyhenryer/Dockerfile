@@ -3,15 +3,21 @@ on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Feature purpose only'     
         required: true
         default: 'warning'
 jobs:
-    build:
-        runs-on: ubuntu-18.04
-        steps:
-            -   uses: actions/checkout@v1
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
 
-            -   name: Setup SSH Keys and known_hosts
-                run: |
-                    echo date
+      - name: Generate build ID
+        id: prep
+        run: |
+            branch=${GITHUB_REF##*/}
+            sha=${GITHUB_SHA::8}
+            ts=$(date +%s)
+            echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"   
