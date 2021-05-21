@@ -16,9 +16,4 @@ jobs:
 
             -   name: Setup SSH Keys and known_hosts
                 run: |
-                    ssh-keygen
-                    ls -al ~/.ssh
-                    .ssh/id_rsa <<< "${{ secrets.SSH_PRIVATE_KEY }}"
-
-            -   name: Some task that fetches dependencies
-                run: echo "${{ secrets.SSH_PRIVATE_KEY }}"
+                    echo date
