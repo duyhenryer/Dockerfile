@@ -6,6 +6,8 @@ on:
         description: 'Feature purpose only'     
         required: true
         default: 'warning'
+#   branches:
+#     - feature-*
 jobs:
   build:
     name: Build
