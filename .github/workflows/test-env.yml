@@ -20,4 +20,8 @@ jobs:
             branch=${GITHUB_REF##*/}
             sha=${GITHUB_SHA::8}
             ts=$(date +%s)
-            echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"   
+            echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"  
+            
+      - name: echo
+        run: |
+          echo ${{ steps.prep.outputs.BUILD_ID }}
