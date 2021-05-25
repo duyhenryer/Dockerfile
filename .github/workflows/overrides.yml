@@ -1,0 +1,17 @@
+name: Test Overrides
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  lighthouse-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Run Lighthouse
+      uses: ./
+      with:
+        overridesJsonFile: '.github/lighthouse/overrides.json'
+        urls: 'https://fireapps.io/'

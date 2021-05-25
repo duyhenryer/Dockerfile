@@ -1,18 +1,33 @@
 name: Test env
-on:
+on: 
   workflow_dispatch:
-
+#     inputs:
+#       logLevel:
+#         description: 'Feature purpose only'     
+#         required: true
+#         default: 'warning'
+  push:
+    branches:    
+#       - '*'         # matches every branch that doesn't contain a '/'
+      - '*feature-*'       # matches every branch containing a single '/'
+#       - '**'        # matches every branch
+      - '!main'   # excludes master
 jobs:
-    build:
-        runs-on: ubuntu-18.04
-        steps:
-            -   uses: actions/checkout@v1
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
 
-            -   name: Setup SSH Keys and known_hosts
-                run: |
-                    ssh-keygen
-                    ls -al ~/.ssh
-                    .ssh/id_rsa <<< "${{ secrets.SSH_PRIVATE_KEY }}"
-
-            -   name: Some task that fetches dependencies
-                run: echo "${{ secrets.SSH_PRIVATE_KEY }}"
+      - name: Generate build ID
+        id: prep
+        run: |
+            branch=${GITHUB_REF##*/}
+            sha=${GITHUB_SHA::8}
+            ts=$(date +%s)
+            echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"  
+            
+      - name: echo
+        run: |
+          echo ${{ steps.prep.outputs.BUILD_ID }}

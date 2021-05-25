@@ -1,0 +1,19 @@
+name: Lighthouse
+on: 
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v2
+        with:
+          urls: 'https://fireapps.io/'
+          #configPath: '.github/lighthouse/lighthouserc.json' # Assertions config file 
+      - name: Save results
+        uses: actions/upload-artifact@v1
+        with:
+          name: lighthouse-results
+          path: '.lighthouseci'
