@@ -1,4 +1,4 @@
-name: BUILD CERTBOT
+name: BUILD DEBUGER
 on:
   # push:
   #   branches:
@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
         
       - name: Build image and add tags
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/debuger ./certbot/
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/debugergit  ./certbot/
         
       - name: Push image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/certbot
