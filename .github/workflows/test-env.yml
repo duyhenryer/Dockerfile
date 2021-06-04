@@ -9,7 +9,7 @@ on:
   push:
     branches:    
 #       - '*'         # matches every branch that doesn't contain a '/'
-      - '*feature-*'       # matches every branch containing a single '/'
+      - feature/MS-9999       # matches every branch containing a single '/'
 #       - '**'        # matches every branch
       - '!main'   # excludes master
 jobs:
@@ -23,7 +23,7 @@ jobs:
       - name: Generate build ID
         id: prep
         run: |
-            branch=${GITHUB_REF/refs\/tags\//}
+            branch=${GITHUB_REF | cut -d / -f 3}
             sha=${GITHUB_SHA::8}
             ts=$(date +%s)
             echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"  
