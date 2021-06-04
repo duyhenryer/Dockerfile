@@ -31,3 +31,5 @@ jobs:
       - name: echo
         run: |
           echo ${{ steps.prep.outputs.BUILD_ID }}
+          
+          echo $GITHUB_REF
