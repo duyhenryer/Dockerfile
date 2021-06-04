@@ -27,13 +27,18 @@ jobs:
             sha=${GITHUB_SHA::8}
             ts=$(date +%s)
             echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"  
-            
+
+            echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
+            echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
+            echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
       - name: echo
         run: |
           echo ${{ steps.prep.outputs.BUILD_ID }}
           echo ${GITHUB_REF##*/}
           
-          echo ${{ steps.get_version.outputs.VERSION }}
+          echo ${{ steps.branch_name.outputs.SOURCE_NAME }}
+          echo: ${{ steps.branch_name.outputs.SOURCE_BRANCH }}
+          echo: ${{ steps.branch_name.outputs.SOURCE_TAG }}
           
           
           
