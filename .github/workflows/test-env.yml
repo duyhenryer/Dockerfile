@@ -32,4 +32,6 @@ jobs:
         run: |
           echo ${{ steps.prep.outputs.BUILD_ID }}
           echo ${GITHUB_REF##*/}
-          echo $GITHUB_REF
+          echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+          
+          echo ${{ steps.get_version.outputs.VERSION }}
