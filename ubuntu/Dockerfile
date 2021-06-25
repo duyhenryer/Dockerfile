@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update
-RUN apt-get install \
+RUN apt-get -y install \
     apt-transport-https \
     ca-certificates \
     curl \
