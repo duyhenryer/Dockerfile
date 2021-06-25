@@ -7,7 +7,7 @@ RUN apt-get -y install \
     curl \
     gnupg \
     lsb-release
-RUN rm /etc/localtime
+
 RUN ln -s /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
