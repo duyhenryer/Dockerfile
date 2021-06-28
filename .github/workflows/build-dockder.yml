@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
         
       - name: Build image and add tags
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/docker-v2:$TAG_S3CMD .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/docker-v2 .
         
       - name: Push image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/docker-v2
