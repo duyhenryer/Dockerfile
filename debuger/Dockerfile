@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 
 WORKDIR /app
+RUN echo "debuger > /etc/hostname"
 
 ENV KAFKA_VERSION=2.8.0
 ENV KAFKA_URL=https://mirror.downloadvn.com/apache/kafka/2.8.0/kafka_2.13-${KAFKA_VERSION}.tgz
