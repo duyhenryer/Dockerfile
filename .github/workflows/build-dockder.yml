@@ -16,6 +16,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
       - name: Login Docker Hub
         uses: docker/login-action@v1
         with:
