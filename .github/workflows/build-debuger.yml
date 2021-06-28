@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  TAG_HOTFIX: 16.04 
+  TAG_HOTFIX: kafka
 
 jobs:              
   running:
