@@ -29,7 +29,7 @@ RUN wget ${KAFKA_URL} -O ${KAFKA_TEMP_FILE} \
     && mkdir -p ${KAFKA_WORKDIR} \
     && tar -xzpf ${KAFKA_TEMP_FILE} --strip-components=1 -C ${KAFKA_WORKDIR}
 
-RUN apt update \
+RUN apt update && \
     apt install -y python3-pip
 
 RUN pip3 install awscli
