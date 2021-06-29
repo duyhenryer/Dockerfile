@@ -29,12 +29,16 @@ RUN wget ${KAFKA_URL} -O ${KAFKA_TEMP_FILE} \
     && mkdir -p ${KAFKA_WORKDIR} \
     && tar -xzpf ${KAFKA_TEMP_FILE} --strip-components=1 -C ${KAFKA_WORKDIR}
 
+RUN apt update \
+    apt install -y python3-pip
+
+RUN pip3 install awscli
 # Install OpenJDK-8
 RUN apt-get update && \
     apt-get install -y openjdk-8-jdk && \
     apt-get install -y ant && \
     apt-get clean;
-    
+
 # Fix certificate issues
 RUN apt-get update && \
     apt-get install ca-certificates-java && \
