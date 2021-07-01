@@ -1,12 +1,9 @@
-name: BUILD actions-runners
+name: BUILD GitHub Actions Runners
 on:
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
   workflow_dispatch:
-
-env:
-  TAG: latest
 
 jobs:              
   running:
@@ -22,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
         
       - name: Build image and add tags
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/actions-runners ./actions-runners/
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/aws-cli:$TAG ./aws-cli/
         
       - name: Push image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/actions-runners
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/aws-cli:$TAG
