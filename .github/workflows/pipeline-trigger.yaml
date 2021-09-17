@@ -2,7 +2,8 @@ name: build-docker-image-develop
 on:
   push:
     branches:
-      - develop
+      - main
+  workflow_dispatch:
 # env:
 #   ECR_DOMAIN: ${{ secrets.ECR_DOMAIN }}
 #   ECR_REGION: "us-east-1"
