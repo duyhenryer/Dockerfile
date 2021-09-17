@@ -1,0 +1,29 @@
+name: build-docker-image-develop
+on:
+  push:
+    branches:
+      - develop
+# env:
+#   ECR_DOMAIN: ${{ secrets.ECR_DOMAIN }}
+#   ECR_REGION: "us-east-1"
+
+jobs:
+  build:
+    name: Build docker image develop
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: build-image
+        env:
+          GITLAB_BOT_TOKEN: ${{ secrets.GITLAB_BOT_TOKEN }}
+          GITLAB_PROJ_PIPELINE_TOKEN: ${{ secrets.GITLAB_PROJ_PIPELINE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          wget https://gitlab.com/finestructure/pipeline-trigger/-/archive/2.7.1/pipeline-trigger-2.7.1.tar.gz
+          tar xvfz pipeline-trigger-2.7.1.tar.gz
+          cd pipeline-trigger-2.7.1
+          pip3 install -r requirements.txt
+          python3 trigger.py -a "$GITLAB__BOT_TOKEN" -e REPO=ar-landingpage \
+                             -e GITHUB_TOKEN=$GITHUB_TOKEN \
+                             -e ENVIROMENT=${GITHUB_REF##*/} \
+                             -p "$GITLAB_PROJ_PIPELINE_TOKEN" -t main 24924018
