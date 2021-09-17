@@ -24,7 +24,7 @@ jobs:
           tar xvfz pipeline-trigger-2.7.1.tar.gz
           cd pipeline-trigger-2.7.1
           pip3 install -r requirements.txt
-          python3 trigger.py -a "$GITLAB__BOT_TOKEN" -e REPO=ar-landingpage \
+          python3 trigger.py -a "$GITLAB__BOT_TOKEN" -e REPO=build-images \
                              -e GITHUB_TOKEN=$GITHUB_TOKEN \
                              -e ENVIROMENT=${GITHUB_REF##*/} \
                              -p "$GITLAB_PROJ_PIPELINE_TOKEN" -t main 24924018
